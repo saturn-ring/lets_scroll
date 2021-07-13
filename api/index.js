@@ -7,7 +7,7 @@ const getWeather = require("./weather");
 const app = express();
 app.use(express.static("files"));
 
-app.get("/viewer/:id", function(req, res) {
+app.get("/list/:id", function(req, res) {
     hitomi(req.params.id).then(v => res.json(v));
 });
 
