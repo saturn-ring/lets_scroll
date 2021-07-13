@@ -35,3 +35,5 @@ Team leader: 다다미, Lano
 Developer: Darkapple, Lano, 다다미, Hibot
 
 Beta-Tester: 졸려
+
+Designer: Pastel
