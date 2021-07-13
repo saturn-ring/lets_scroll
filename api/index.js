@@ -12,7 +12,6 @@ app.get("/viewer/:id", function(req, res) {
 });
 
 app.get("/image", function(req, res) {
-    res.type("image/png");
     get(req.query.url, {
         responseType: "stream",
         headers: { referer: "https://hitomi.la" }
