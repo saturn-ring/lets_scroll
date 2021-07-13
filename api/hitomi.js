@@ -8,11 +8,11 @@ async function getList(num) {
 
 function getLink(file) {
     let { hash, name } = file, ret = "b", dir;
-    if (file['hasavif']) {dir='avif';ret='a';}
-    if (file['haswebp']) {dir='webp';ret='a';}
+    if (file["hasavif"]) {dir="avif";ret="a";}
+    if (file["haswebp"]) {dir="webp";ret="a";}
     let ext = dir || name.split(".").pop();
-    dir = dir || 'images';
-    if (hash[2]) hash = hash.replace(/^.*(..)(.)$/, "$2/$1/" + hash);
+    dir = dir || "images";
+    if (hash[2]) hash = hash.replace(/^.*(..)(.)$/, `$2/$1/${hash}`);
     let url = `https://a.hitomi.la/${dir}/${hash}.${ext}`;
     let m = /\/[0-9a-f]\/([0-9a-f]{2})\//.exec(url);
     if (!m) return url.replace(/\/\/..?\.hitomi\.la/, "//a.hitomi.la");
