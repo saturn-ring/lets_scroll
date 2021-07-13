@@ -1,7 +1,7 @@
 (async function () {
     try {
             let params = new URLSearchParams(location.search.substring(1))
-            var list = await axios.get(`/viewer/${params.get('number')}`);
+            var list = await axios.get(`/list/${params.get('number')}`);
             list=list.data;
     }
     catch (e) {
