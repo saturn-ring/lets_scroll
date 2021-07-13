@@ -3,7 +3,7 @@ const express = require("express");
 const hitomi = require("./hitomi");
 const selfCheck = require("./selfCheck");
 const getWeather = require("./weather");
-
+const comci = require("./comci");
 const app = express();
 app.use(express.static("files"));
 
@@ -54,6 +54,19 @@ app.get("/pixiv/:id", function(req, res) {
         }).then(e => e.data.pipe(res));
     }).catch(() => res.send("Request Failed"));
 })
-
+app.get("/comci/search", function(req, res){
+        let schoolName= req.query.school;
+        comci.getSchoolNumber(schoolName).then(x=>{
+                res.json(x);
+        });
+});
+app.get("/comci/timetable", function(req, res){
+        let {id, g, c}=req.query;
+        comci.getTimeTable(id, g, c).then(x=>{
+                res.json(x);
+        }).catch(x=>{
+                res.json({"error": x.toString()});
+        })
+});
 app.get("*", (_, res) => res.sendFile(`${__dirname}/404.html`));
 app.listen(5000, () => console.log("API Enabled At port 5000\n"));
