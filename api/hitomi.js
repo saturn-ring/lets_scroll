@@ -8,8 +8,8 @@ async function getList(num) {
 
 function getLink(file) {
     let { hash, name } = file, ret = "b", dir;
-    if (file["hasavif"]) {dir="avif";ret="a"}
-    if (file["haswebp"]) {dir="webp";ret="a"}
+    if (file["hasavif"]) {dir="avif";ret="a";}
+    if (file["haswebp"]) {dir="webp";ret="a";}
     let ext = dir || name.split(".").pop();
     dir = dir || "images";
     if (hash[2]) hash = hash.replace(/^.*(..)(.)$/, `$2/$1/${hash}`);
