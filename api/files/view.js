@@ -1,7 +1,7 @@
 (async function () {
     try {
             let params = new URLSearchParams(location.search.substring(1))
-            var list = await axios.get(`/hitomi/list?number=${params.get('number')}`);
+            var list = await axios.get(`/viewer/${params.get('number')}`);
             list=list.data;
     }
     catch (e) {
@@ -11,6 +11,6 @@
     for (let i = 0; i < list.length; i++) {
             let d = document.createElement("img");
             maindiv.appendChild(d);
-            d.src = `/hitomi/image?link=${encodeURIComponent(list[i])}`;
+            d.src = `/image?url=${encodeURIComponent(list[i])}`;
     }
 })();
