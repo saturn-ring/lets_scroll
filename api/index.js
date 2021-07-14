@@ -33,16 +33,6 @@ app.get("/selfCheck", async function(req, res) {
         .catch(() => res.json({error: "request Failed"}));
 })
 
-app.get("/youtube", async function(req, res) {
-    res.type("video/mp4");
-    let { v, type } = req.query;
-    let { formats } = await getInfo(v);
-    let itag = ({ mp3: 251, mp4: 22 })[type];
-    let url = formats.find(v => v.itag == itag);
-    get(url.url, { responseType: "stream" })
-        .then(e => e.data.pipe(res)).catch();
-});
-
 app.get("/pixiv/:id", function(req, res) {
     let url = "http://pixiv.net/ajax/illust";
     get(`${url}/${req.params.id}`).then(function(e) {
