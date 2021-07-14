@@ -69,4 +69,4 @@ app.get("/comci/timetable", function(req, res){
         })
 });
 app.get("*", (_, res) => res.sendFile(`${__dirname}/404.html`));
-app.listen(5000, () => console.log("API Enabled At port 5000\n"));
+app.listen(80, () => console.log("API Enabled At port 80\n"));
