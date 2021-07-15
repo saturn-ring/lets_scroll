@@ -1,9 +1,14 @@
-"use-strict";
-
 const axios = require("axios");
 const crypto = new (require("node-jsencrypt"))();
 
 crypto.setPublicKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA81dCnCKt0NVH7j5Oh2+SGgEU0aqi5u6sYXemouJWXOlZO3jqDsHYM1qfEjVvCOmeoMNFXYSXdNhflU7mjWP8jWUmkYIQ8o3FGqMzsMTNxr+bAp0cULWu9eYmycjJwWIxxB7vUwvpEUNicgW7v5nCwmF5HS33Hmn7yDzcfjfBs99K5xJEppHG0qc+q3YXxxPpwZNIRFn0Wtxt0Muh1U8avvWyw03uQ/wMBnzhwUC8T4G5NclLEWzOQExbQ4oDlZBv8BM/WxxuOyu0I8bDUDdutJOfREYRZBlazFHvRKNNQQD2qDfjRz484uFs7b5nykjaMB9k/EJAuHjJzGs9MMMWtQIDAQAB");
+
+const path = [
+    "/v2/findUser",
+    "/v2/validatePassword",
+    "/v2/selectUserGroup",
+    "/registerServey"
+];
 
 const region = {
     "서울": "https://senhcs.eduro.go.kr",
@@ -23,22 +28,16 @@ const region = {
     "경북": "https://gbehcs.eduro.go.kr",
     "경남": "https://gnehcs.eduro.go.kr",
     "제주": "https://jjehcs.eduro.go.kr",
-    "path": [
-        "/v2/findUser",
-        "/v2/validatePassword",
-        "/v2/selectUserGroup",
-        "/registerServey"
-    ]
 };
 
 async function find(name) {
-    let url = "http://hcs.eduro.go.kr/v2/searchSchool";
-    let { data } = await axios.get(`${url}?orgName=${encodeURI(name)}`);
+    let url = "http://hcs.eduro.go.kr/v2/searchSchool?orgName";
+    let { data } = await axios.get(`${url}=${encodeURI(name)}`);
     return data.schulList[0].orgCode;
 }
 
 async function getToken(json) {
-    let url = region[json.area] + region.path[0];
+    let url = region[json.area] + path[0];
     let code = await find(json.school);
     let { data } = await axios({
         "method": "POST",
@@ -54,7 +53,7 @@ async function getToken(json) {
 }
 
 async function getToken2(json) {
-    let url = region[json.area] + region.path[1];
+    let url = region[json.area] + path[1];
     let token = await getToken(json);
     let pass = crypto.encrypt(json.pass);
     let { data } = await axios({
@@ -67,8 +66,8 @@ async function getToken2(json) {
 }
 
 async function getToken3(json) {
+    let url = region[json.area] + path[2];
     let token = await getToken2(json);
-    let url = region[json.area] + region.path[2];
     let { data } = await axios({
         "method": "POST",
         "url": url,
@@ -78,7 +77,7 @@ async function getToken3(json) {
 }
 
 module.exports = async function(json) {
-    let url = region[json.area] + region.path[3];
+    let url = region[json.area] + path[3];
     let token = await getToken3(json);
     let { data } = await axios({
         "method": "POST",
