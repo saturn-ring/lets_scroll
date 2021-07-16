@@ -5,6 +5,7 @@ const selfCheck = require("./selfCheck");
 const getWeather = require("./weather");
 const comci = require("./comci");
 const app = express();
+const fs=require('fs');
 app.use(express.static("files"));
 
 app.get("/list/:id", function(req, res) {
@@ -23,6 +24,10 @@ app.get("/weather", async function(req, res) {
     let url = await getWeather(req.query.area);
     if (url) get(url, {"responseType": "stream"})
         .then(e => e.data.pipe(res));
+    else  {
+        const r = fs.createReadStream('./weathererror.png');
+        r.pipe(res);
+    }
 })
 
 app.get("/selfCheck", async function(req, res) {
