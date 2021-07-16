@@ -101,22 +101,6 @@
         if (id === 7) {
             $(".apidoc").removeClass("modal");
         }
-
-        if (id === 8) {
-            $(".fs").addClass("modal");
-        }
-
-        if (id === 9) {
-            $(".fs").removeClass("modal");
-        }
-
-        if (id === 10) {
-            $(".sc").addClass("modal");
-        }
-
-        if (id === 11) {
-            $(".sc").removeClass("modal");
-        }
     }
 
     function stop() {
