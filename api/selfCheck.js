@@ -40,8 +40,7 @@ async function getToken(json) {
     let { data } = await axios.post(url, {
         "orgCode": await find(json.school),
         "name": crypto.encrypt(json.name),
-        "birthday": crypto.encrypt(json.birth),
-        "loginType": "school"
+        "birthday": crypto.encrypt(json.birth)
     });
     return data.token;
 }
@@ -81,7 +80,7 @@ module.exports = async function(json) {
             "rspns02": "1",
             "rspns00": "Y",
             "upperToken": token,
-            "upperUserNameEncpt": "DAMI"
+            "upperUserNameEncpt": "LANO"
         },
         "headers": { "Authorization": token }
     })
