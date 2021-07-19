@@ -20,7 +20,7 @@
                         } else if (!arr.length && !tasks.length) {
                                 clearInterval(dark);
                         }
-                })
+                }, 10);
         }
         try {
                 let params = new URLSearchParams(location.search.slice(1));
