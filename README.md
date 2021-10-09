@@ -1,5 +1,4 @@
 # lets_scroll
-[https://scroll.reacted.xyz](https://scroll.reacted.xyz)
 
 ## 다중 이미지 지원 사이트용 스크롤 형식 웹뷰어
 
@@ -17,7 +16,7 @@ A: [https://hitomi.la](https://hitomi.la) 가 메인 타겟입니다.
 
 Q: 공개 프로젝트인가요?
 
-A: 공익적인 목적을 위해 만들어진 프로젝트이며 [https://scroll.reacted.xyz](https://scroll.reacted.xyz) 에 공개될 예정입니다. 
+A: 공익적인 목적을 위해 만들어진 프로젝트이며 depricated site - unavailable 에 공개될 예정입니다. 
 
 ---
 
