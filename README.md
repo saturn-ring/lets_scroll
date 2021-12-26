@@ -6,17 +6,7 @@
 
 ### About lets_scroll
 
-Q: lets_scroll 프로젝트는 어떤 프로젝트인가요?
-
-A: 여러개의 이미지가 있는 사이트에서 이미지를 추출한 후 스크롤 형식으로 변환하는 프로젝트입니다.
-
-Q: 지원 사이트는 무엇이 있나요?
-
-A: [https://hitomi.la](https://hitomi.la) 가 메인 타겟입니다.
-
-Q: 공개 프로젝트인가요?
-
-A: 공익적인 목적을 위해 만들어진 프로젝트이며 depricated site - unavailable 에 공개될 예정입니다. 
+그냥 히토미뷰어임 ㅎㅎ
 
 ---
 
