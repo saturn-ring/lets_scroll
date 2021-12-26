@@ -1,4 +1,4 @@
-package main
+package hitomi
 
 import (
 	"encoding/json"
