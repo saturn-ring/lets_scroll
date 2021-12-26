@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	
+	"github.com/dadami-io/lets_scroll/hitomi"
 )
 
 func getLink(w http.ResponseWriter, r *http.Request) {
