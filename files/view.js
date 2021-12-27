@@ -3,7 +3,7 @@ fetch(`/link${location.search}`)
 .then(response => response.json())
 .then(response => {
     if (response.length >= 1) {
-        const main = document.getElementsByClassName("img");
+        const main = document.getElementById("img");
         for (const s of response) {
                 let el = document.createElement("img");
                 main.append(el); el.src = `/img?url=${s}`;
