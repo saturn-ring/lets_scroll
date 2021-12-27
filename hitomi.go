@@ -109,7 +109,6 @@ func (h Hitomi) Decipher(file File) string {
 	url = fmt.Sprintf(host, dir, g, file.Hash, ext)
 
 	m := M.FindString(url)
-	fmt.Println(m)
 
 	if m == "" {
 		retval = "a"
