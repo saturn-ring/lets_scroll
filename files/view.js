@@ -1,4 +1,4 @@
-(async function() {
+
 fetch(`/link${location.search}`)
 .then(response => response.json())
 .then(response => {
@@ -11,4 +11,3 @@ fetch(`/link${location.search}`)
     }
     else document.write("ERROR");
 });
-})();
