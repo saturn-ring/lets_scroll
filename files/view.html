@@ -1,4 +1,192 @@
-<style>@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");@import url("https://rsms.me/inter/inter.css");@font-face{font-family:"Quicksand";src:url("/font/Quicksand-Light.ttf") format("truetype");}@font-face{font-family:"Fira Code";src:url("/font/FiraCode-Regular.ttf") format("truetype");}#load,[class~=header]{position:fixed;}svg,g{transition:none;}#load[class~=modal]{opacity:1;}*{outline:none;}[class~=header],body,[class~=header-wrap],html{width:100%;}[class~=header],[class~=header-wrap]{height:auto;}[class~=header-wrap],[class~=left],[class~=right],[class~=header]{display:flex;}[class~=header]{justify-content:center;}[class~=header],[class~=header-wrap],[class~=left],[class~=right]{align-items:center;}#load{left:50%;}[class~=header]{background:rgba(15,15,15,.5);}[class~=header]{-webkit-backdrop-filter:blur(100px);}[class~=header]{backdrop-filter:blur(100px);}[class~=header-wrap]{max-width:1200px;}*{box-sizing:border-box;}#load,#load[class~=modal]{transform:translate(-50%);}#load[class~=modal]{visibility:visible;}.srch,[class~=header-wrap]{padding-left:.104166667in;}[class~=header-wrap]{padding-bottom:.104166667in;}[class~=header-wrap],.srch{padding-right:.104166667in;}[class~=header-wrap]{padding-top:.104166667in;}[class~=header-wrap]{justify-content:space-between;}[class~=left]{cursor:pointer;}body,html{height:100%;}[class~=logo]{width:auto;}[class~=logo]{height:.3125in;}[class~=logo-text]{color:#fbfbfb;}#load{overflow:hidden;}[class~=logo-text]{font-size:1.166666667pc;}[class~=logo-text]{margin-left:10px;}[class~=entr],.srch{height:.416666667in;}[class~=entr],.srch{border-radius:.625pc;}[class~=srch]:focus{background-color:#1c1c1c;}.srch{border-left-width:medium;}.srch{border-bottom-width:medium;}.srch{border-right-width:medium;}.srch{border-top-width:medium;}.srch{border-left-style:none;}.srch{border-bottom-style:none;}.srch{border-right-style:none;}.srch{border-top-style:none;}body{margin-left:0;}.srch{border-left-color:currentColor;}*{font-family:"Quicksand",sans-serif;}body{margin-bottom:0;}.srch{border-bottom-color:currentColor;}.srch{border-right-color:currentColor;}*{word-break:keep-all;}.srch{border-top-color:currentColor;}.srch{border-image:none;}[class~=entr],.srch{background-color:#424242;}.srch{padding-bottom:.052083333in;}[class~=entr][class~=act]{fill:#fbfbfb;}.srch{padding-top:.052083333in;}body{margin-right:0;}.srch{font-size:1.083333333pc;}.srch{max-width:375pt;}#load{font-size:.8rem;}.srch{width:100px;}*{transition:.2s;}.srch,[class~=loadtoolong]{text-align:center;}[class~=entr]{width:.416666667in;}#load{opacity:0;}#load{visibility:hidden;}[class~=entr],[class~=img],#load{display:flex;}#load{transition:opacity .5s,visibility .5s,transform .5s;}[class~=entr],#load,[class~=img]{justify-content:center;}[class~=entr],#load,[class~=img]{align-items:center;}#load{background:#fff;}#load{z-index:10000;}[class~=entr][class~=act],[class~=entr]{cursor:pointer;}[class~=entr]{cursor:not-allowed;}[class~=entr]{margin-left:7.5pt;}[class~=entr],[class~=entr],.srch{fill:#404040;}.ent-btn{width:.1875in;}#load{width:100vw;}body{margin-top:0;}.ent-btn{height:18px;}body{-ms-overflow-style:none;}[class~=entr],.srch{background-color:rgba(28,28,28,.5);}body{scrollbar-width:none;}#load{height:100vh;}body{background:black;}.srch,[class~=entr]{color:#fbfbfb;}[class~=img],img{width:100%;}[class~=img]{flex-direction:column;}[class~=img]{padding-top:.416666667in;}[class~=rotate]{animation:spin 2s infinite;}[class~=loadtoolong]{position:absolute;}[class~=loadtoolong]{bottom:.104166667in;}[class~=loadtoolong]{display:none;}[class~=loadtoolong]{font-size:.138888889in;}[class~=loadtoolong]{color:black;}img{height:auto;}img{max-width:1200px;}[class~=entr][class~=fill]{background-color:#1c1c1c;}</style>
+<style>
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+    @import url('https://rsms.me/inter/inter.css');
+
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('/font/Quicksand-Light.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Fira Code';
+        src: url('/font/FiraCode-Regular.ttf') format('truetype');
+    }
+
+    * {
+        outline: none;
+        box-sizing: border-box;
+        font-family: 'Quicksand', sans-serif;
+        word-break: keep-all;
+        transition: .2s;
+    }
+
+    g, svg {
+        transition: none;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        background: black;
+    }
+
+    .header {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(15, 15, 15, 0.5);
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px);
+    }
+
+    .header-wrap {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: auto;
+        height: 30px;
+    }
+
+    .logo-text {
+        color: #fbfbfb;
+        font-size: 14pt;
+        margin-left: 10px;
+    }
+
+    .srch {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background-color: #424242;
+        padding: 5px 10px;
+        font-size: 13pt;
+        max-width: 500px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .srch:focus {
+        background-color: #1c1c1c;
+    }
+
+    .entr {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #424242;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left: 10px;
+        fill: #404040;
+        cursor: not-allowed;
+    }
+
+    .entr.act {
+        fill: #fbfbfb;
+        cursor: pointer;
+    }
+
+    .entr.fill {
+        background-color: #1c1c1c;
+    }
+
+    .ent-btn {
+        width: 18px;
+        height: 18px;
+    }
+
+    .srch, .entr {
+        background-color: rgba(28, 28, 28, 0.5);
+        fill: #404040;
+        color: #fbfbfb;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        max-width: 1200px;
+    }
+
+    .img {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    #load {
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%);
+        overflow: hidden;
+        font-size: .8rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .5s, visibility .5s, transform .5s;
+        background: #fff;
+        z-index: 10000;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #load.modal {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%)
+    }
+
+    .rotate {
+        animation: spin 2s infinite;
+    }
+
+    .loadtoolong {
+        position: absolute;
+        bottom: 10px;
+        display: none;
+        font-size: 10pt;
+        text-align: center;
+        color: black;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
