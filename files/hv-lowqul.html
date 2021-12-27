@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitomiViewer — 저사양 모드 — 가장 편리한 히토미 미러링</title>
+</head>
+<body>
+    <h1>HitomiViewer — 저사양 모드</h1>
+    <p>아래 입력란에 갤러리 ID를 입력하세요. 최대 7자리이며, 초과 시 제대로 동작하지 않습니다.</p>
+    <input type="text" id="num">
+    <button id="btn">확인</button>
+    <p>저사양 모드는 지원하지 않는 브라우저로 접속하였을 때 자동으로 활성화되며, 원래의 페이지가 깨지거나 잘 동작하지 않는 경우, 그리고 인터넷 연결 환경이 좋지 못한 경우 수동으로 사용할 수 있습니다.</p>
+    <p>HitomiViewer가 지원하는 브라우저는 Chrome 또는 Chromium 기반 브라우저, Firefox, Safari입니다.</p>
+    <a href="https://google.com/chrome">이곳</a>
+    <a>을 눌러 최신 버전의 Chrome 브라우저를 다운로드 하시거나,</a>
+    <a href="https://mozilla.org">이곳</a>
+    <a>을 눌러 최신 버전의 Firefox 브라우저를 다운로드 하신 후 온전한 HitomiViewer를 사용해 보세요.</a>
+    <script>
+        document.getElementById("num").addEventListener("keydown", event => {
+            if (event.keyCode === 13) {
+                    const num = document.getElementById("getnum").value || NaN;
+                    if (!isNaN(num)) location.href = `/view.html?number=${num}`;
+            }
+        });
+        document.getElementById("btn").onclick = () => {
+            const value = document.getElementById("num");
+            location.href = `/view?id=${value.value}`;
+        };
+    </script>
+</body>
+</html>
