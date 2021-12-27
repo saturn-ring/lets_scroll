@@ -1,4 +1,4 @@
-package hitomi
+package main
 
 import (
 	"encoding/json"
@@ -36,7 +36,7 @@ const (
 )
 
 var (
-	VALID = regexp.MustCompile(`/(\w)/(\w{2})/`)
+	VALID = regexp.MustCompile(`/\w{61}\w+`)
 	URL   = regexp.MustCompile(`//..?\.hitomi\.la/`)
 	RES   = regexp.MustCompile(`//..?\.hitomi\.la/`)
 )
@@ -73,21 +73,15 @@ func (h Hitomi) Decipher(file File) string {
 	url = fmt.Sprintf(image, dir, file.Hash, ext)
 
 	if !VALID.MatchString(url) {
+		fmt.Println("ha!")
 		return URL.ReplaceAllString(url, `//a.hitomi.la/`)
 	}
 
-	m := VALID.FindString(url)[3:5]
-	g, err := strconv.ParseInt(m, 16, 0)
+	m := VALID.FindString(url)
+	g, err := strconv.ParseInt(m[64:]+m[62:64], 16, 0)
 
 	if err == nil {
-		o := 0
-		if g < 0x80 {
-			o = 1
-		}
-		if g < 0x40 {
-			o = 2
-		}
-		retval = string(rune(97+o)) + retval
+		retval = string(rune(97+h.gg(g))) + retval
 	}
 	last := fmt.Sprintf("//%s.hitomi.la/", retval)
 	return RES.ReplaceAllString(url, last)
