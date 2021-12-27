@@ -4,8 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	
-	"github.com/dadami-io/lets_scroll/hitomi"
+	PATH "path"
 )
 
 func getLink(w http.ResponseWriter, r *http.Request) {
@@ -28,15 +27,19 @@ func serveIMG(w http.ResponseWriter, r *http.Request) {
 	req.Header.Add("referer", "https://hitomi.la")
 
 	client := &http.Client{}
-	resp, _ := client.Do(req)
+	resp, e := client.Do(req)
 
 	defer resp.Body.Close()
+
+	if e != nil {
+		return
+	}
 
 	img, _ := ioutil.ReadAll(resp.Body)
 	w.Write(img)
 }
 
-func serveFile(w http.ResponseWriter, r *http.Request) {
+func serveFsile(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == http.MethodGet {
 
@@ -49,6 +52,28 @@ func serveFile(w http.ResponseWriter, r *http.Request) {
 
 		} else {
 			path = "./files" + path
+			http.ServeFile(w, r, path)
+		}
+
+	}
+}
+
+func serveFile(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method == http.MethodGet {
+
+		path := r.URL.Path
+
+		if path == "/" {
+			path = "./files/index.html"
+			http.ServeFile(w, r, path)
+		} else {
+			path = "./files" + path
+
+			if PATH.Ext(path) == "" {
+				path = path + ".html"
+			}
+
 			http.ServeFile(w, r, path)
 		}
 
