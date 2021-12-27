@@ -39,25 +39,6 @@ func serveIMG(w http.ResponseWriter, r *http.Request) {
 	w.Write(img)
 }
 
-func serveFsile(w http.ResponseWriter, r *http.Request) {
-
-	if r.Method == http.MethodGet {
-
-		path := r.URL.Path
-
-		if path == "/" {
-
-			path = "./files/index.html"
-			http.ServeFile(w, r, path)
-
-		} else {
-			path = "./files" + path
-			http.ServeFile(w, r, path)
-		}
-
-	}
-}
-
 func serveFile(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == http.MethodGet {
