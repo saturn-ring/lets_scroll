@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"regexp"
 	"strconv"
-	"strings"
 )
 
 type Hitomi struct{}
@@ -32,8 +31,8 @@ type File struct {
 
 const (
 	base  = "https://ltn.hitomi.la/galleries/%s.js"
-	host  = "https://a.hitomi.la/%s/1639745412/%d/%s.%s"
-	image = "https://a.hitomi.la/%s/%s.%s"
+	ha    = "https://a.hitomi.la/%s/1639745412/%d/%s.%s"
+	image = "https://a.hitomi.la/%s/%s/%s/%s.%s"
 )
 
 var (
@@ -41,88 +40,48 @@ var (
 	M   = regexp.MustCompile(`/[a-f0-9]{64}`)
 )
 
-// func (h Hitomi) Deciphear(file File) string {
-
-// 	var ext, dir, retval, url string
-
-// 	retval = "b"
-
-// 	if file.Hasavif == 1 {
-// 		dir = "avif"
-// 		ext = "avif"
-// 		retval = "a"
-// 	} else if file.Haswebp == 1 {
-// 		dir = "webp"
-// 		ext = "webp"
-// 		retval = "a"
-// 	} else {
-// 		dir = "images"
-// 		ext = strings.Split(file.Name, ".")[1]
-// 	}
-
-// 	if len(file.Name) >= 3 {
-
-// 		l := len(file.Hash)
-
-// 		a := file.Hash[l-1:]
-// 		b := file.Hash[l-3 : l-1]
-
-// 		file.Hash = fmt.Sprintf("%s/%s/%s", a, b, file.Hash)
-// 	}
-
-// 	url = fmt.Sprintf(image, dir, file.Hash, ext)
-
-// 	if !VALID.MatchString(url) {
-// 		fmt.Println("ha!")
-// 		return URL.ReplaceAllString(url, `//a.hitomi.la/`)
-// 	}
-
-// 	m := VALID.FindString(url)
-// 	g, err := strconv.ParseInt(m[64:]+m[62:64], 16, 0)
-
-// 	if err == nil {
-// 		retval = string(rune(97+h.gg(g))) + retval
-// 	}
-// 	last := fmt.Sprintf("//%s.hitomi.la/", retval)
-// 	return RES.ReplaceAllString(url, last)
-// }
-
 func (h Hitomi) Decipher(file File) string {
 
-	var dir, ext, url, retval, last string
+	var dir, ext, url, retval, m string
 
 	if file.Haswebp == 1 {
 		dir = "webp"
 		ext = "webp"
 		retval = "a"
-	} else if file.Hasavif == 1 {
+	}
+
+	if file.Hasavif == 1 {
 		dir = "avif"
 		ext = "avif"
 		retval = "a"
-	} else {
-		ext = strings.Split(file.Name, ".")[1]
+	}
+
+	if dir == "" {
 		dir = "images"
 		retval = "b"
+		ext = file.Name[len(file.Name)-3:]
 	}
-	l := len(file.Hash)
-	g, _ := strconv.ParseInt(file.Hash[l-1:]+file.Hash[l-3:l-1], 16, 0)
-	url = fmt.Sprintf(host, dir, g, file.Hash, ext)
 
-	m := M.FindString(url)
+	length := len(file.Hash)
 
-	if m == "" {
-		retval = "a"
-	} else {
-		l = len(m)
-		n, err := strconv.ParseInt(m[l-1:]+m[62:l-1], 16, 0)
+	a := file.Hash[length-1 : length-0]
+	b := file.Hash[length-3 : length-1]
 
-		if err == nil {
-			retval = string(rune(97+h.gg(n))) + retval
-		}
+	g, _ := strconv.ParseInt(a+b, 16, 0)
+	url = fmt.Sprintf(ha, dir, g, file.Hash, ext)
 
-	}
-	last = fmt.Sprintf("//%s.hitomi.la/", retval)
-	return RES.ReplaceAllString(url, last)
+	m = M.FindString(url)
+	length = len(m)
+
+	a = m[length-1:]
+	b = m[62 : length-1]
+
+	n, _ := strconv.ParseInt(a+b, 16, 0)
+	retval = string(rune(97+h.gg(n))) + retval
+
+	m = fmt.Sprintf("//%s.hitomi.la/", retval)
+	return RES.ReplaceAllString(url, m)
+
 }
 
 func (h Hitomi) GetLink(Id string) []string {
