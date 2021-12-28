@@ -7,8 +7,6 @@ fetch(`/link${location.search}`)
             let el = document.createElement("img");
             main.append(el);
             el.src = `/img?url=${s}`;
-            el.onerror = "this.parentNode.style.display='none'";
-            console.log('err', this);
         }
     }
     else document.write("ERROR");
