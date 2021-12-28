@@ -307,7 +307,7 @@
                 let el = document.createElement("img");
                 main.append(el);
                 el.src = `/img?url=${s}`;
-                $("img").attr("onerror", "this.parentNode.style.display='none'");
+                $("img").attr("onerror", "style.display='none'");
             }
         }
         else document.write("ERROR");
