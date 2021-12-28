@@ -7,6 +7,7 @@
 ### Structure of lets_scroll
    
 Golang backend + static HTML frontend
+
 Packaged with Electron
           
 
