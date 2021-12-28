@@ -26,4 +26,4 @@ Designer: Pastel
 
 매 시간 0분에 업데이트 && 리로드 가 시작됩니다.
 매주 일요일에 electron app stable 릴리즈가 배포됩니다.
-[https://github.com/saturn-ring/hitomi-viewer]
+https://github.com/saturn-ring/hitomi-viewer
