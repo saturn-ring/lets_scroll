@@ -298,6 +298,19 @@
         }
         scroll = position;
     });
-
-    $("img").attr("onerror", "this.parentNode.style.display='none'");
+    
+    fetch(`/link${location.search}`)
+    .then(response => response.json())
+    .then(response => {
+        if (response.length >= 1) {
+            const main = document.getElementById("image");
+            for (const s of response) {
+                let el = document.createElement("img");
+                main.append(el);
+                el.src = `/img?url=${s}`;
+                $("img").attr("onerror", "this.parentNode.style.display='none'");
+            }
+        }
+        else document.write("ERROR");
+    });
 </script>
