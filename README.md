@@ -1,29 +1,27 @@
 # lets_scroll
 
-## 다중 이미지 지원 사이트용 스크롤 형식 웹뷰어
-
----
-
-### About lets_scroll
-
-그냥 히토미뷰어임 ㅎㅎ
+## golang based hitomi.la viewer
 
 ---
 
 ### Structure of lets_scroll
-
-1. 사용자의 요청 (/viewer/번호)
-2. 클라이언트단에서 이미지 파싱
-3. 클라이언트단에서 스크롤 형식으로 변환
+   
+lets_scroll
+        ㄴ main.go
+        ㄴ hitomi.go
+        - static files
+          ㄴ index.html
+          ㄴ view.html
+            ㄴ view.js
+          - fonts
+          
 
 ---
 
 ### Members
 
-Team leader: 다다미, Lano
+Backend Developer: Darkapple, Lano, 다다미, Hibot
 
-Developer: Darkapple, Lano, 다다미, Hibot
-
-Beta-Tester: 졸려
+Electron-app Developer: franknoh
 
 Designer: Pastel
