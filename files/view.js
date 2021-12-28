@@ -7,6 +7,9 @@ fetch(`/link${location.search}`)
             let el = document.createElement("img");
             main.append(el);
             el.src = `/img?url=${s}`;
+            $("img").error(function(){
+                $(this).hide();
+            });
         }
     }
     else document.write("ERROR");
