@@ -65,5 +65,5 @@ func main() {
 	http.HandleFunc("/link", getLink)
 	http.HandleFunc("/img", serveIMG)
 	http.HandleFunc("/", serveFile)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":3000", nil)
 }
