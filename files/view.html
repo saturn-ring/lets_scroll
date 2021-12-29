@@ -1113,11 +1113,10 @@
     }
 
     function willchange(clsname, clsform) {
-        clselement = document.getElementsByClassName(clsname);
         if (clsform === 0) {
-            clselement.style.willChange = "auto";
+            $(clsname).css("will-change", "auto");
         } else if (clsform === 1) {
-            clselement.style.removeProerty("will-change");
+            $(clsname).css("will-change", "");
         }
     }
 
