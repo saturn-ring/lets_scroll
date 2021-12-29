@@ -1,0 +1,27 @@
+{
+  "name": "hitomi-viewer",
+  "version": "1.0.0",
+  "description": "hitomi viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dadami-io/lets_scroll.git"
+  },
+  "keywords": [
+    "hitomi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dadami-io/lets_scroll/issues"
+  },
+  "homepage": "https://github.com/dadami-io/lets_scroll#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "custom-electron-titlebar": "^3.2.10"
+  }
+}
