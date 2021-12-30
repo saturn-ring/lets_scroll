@@ -29,7 +29,6 @@ function createWindow () {
     win.webContents.on('will-navigate', (e, url) => {
         e.preventDefault();
         if (!fs.existsSync(url)) {
-            console.log(url);
             if(url.endsWith('files')||url.endsWith('files/')) {
                 url = path.join(__dirname, '../files/index.html');
                 win.loadURL(url);
