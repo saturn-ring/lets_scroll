@@ -4,7 +4,7 @@
         100% { transform: rotate(360deg); }
     }
 
-    @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');https://github.com/dadami-io/lets_scroll/blob/main/files/view.html
+    @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
     @import url('https://rsms.me/inter/inter.css');
 
     @font-face {
@@ -18,23 +18,6 @@
         src: url('./font/FiraCode-Regular.ttf') format('truetype');
     }
 
-    :root {
-        --white: #ffffff;
-        --dark-white: #fdfdfd;
-        --light-gray: #f7f7f7;
-        --middle-gray: #c0c0c0;
-        --middle-dark-gray: #adadad;
-        --gray: #808080;
-        --black: #000000;
-        --dm-white: #1c1c1c;
-        --dm-dark-white: #212121;
-        --dm-light-gray: #424242;
-        --dm-middle-gray: #404040;
-        --dm-middle-dark-gray: #555555;
-        --dm-gray: #808080;
-        --dm-black: #fbfbfb;
-    }
-
     * {
         outline: none;
         box-sizing: border-box;
@@ -43,223 +26,103 @@
         transition: .2s;
     }
 
+    g, svg {
+        transition: none;
+    }
+
     html, body {
         height: 100%;
         width: 100%;
     }
 
-    input {
-        appearance: none;
-        -webkit-appearance: none;
-        -webkit-border-radious: 0;
-    }
-
     body {
         margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        background: black;
+        color: #202020
     }
 
-    g, svg {
-        transition: none !important;
+    .header {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(15, 15, 15, 0.5);
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px);
     }
 
-    a {
-        text-decoration: none;
-        color: #1876fb;
+    .header-wrap {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .lowqulity {
-        font-size: 9pt;
+    .notice {
+        height: 500px;
+        width: 100%;
+        color: #f7f7f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         text-align: center;
-        color: #676767;
-        margin-top: 30px;
-    }
-
-    .apidoc {
-        width: 100%;
-        height: 100%;
-        background: white;
-        position: fixed;
-        z-index: 1;
-        padding: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .3s, visibility .3s;
-        overflow-y: scroll;
-    }
-
-    .apidoc.modal {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .mdl-wrp {
-        max-width: 1000px;
-        width: 100%;
-        height: 100%;
-    }
-
-    .mdl-hdr {
-        display: flex;
-        align-items: center;
-        font-size: 15pt;
-    }
-
-    .mdl-cls {
-        width: 25px;
-        height: 25px;
-        margin-right: 30px;
-        cursor: pointer;
-    }
-
-    .mdl-scn {
-        margin-top: 30px;
-    }
-
-    .scn-tit {
-        font-size: 20pt;
-        font-weight: 700;
-        font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    }
-
-    .srn-tit {
-        font-size: 15pt;
-        font-weight: 700;
-        font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    }
-
-    .scn-sub {
-        font-size: 12pt;
-        margin-top: 5px;
-        font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    }
-
-    .srn-req {
-        font-family: "Fira Code", monospace;
-        font-size: 10pt;
-        width: fit-content;
-        width: -moz-fit-content;
-        margin-top: 10px;
-        word-break: break-all;
-    }
-
-    .mdl-srn {
-        margin-top: 40px;
-        background: var(--light-gray);
         padding: 20px;
-        border-radius: 10px;
+        margin-top: 60px;
+        font-size: 13pt;
+        font-weight: 600;
     }
 
-    .srn-sub {
-        font-size: 12pt;
-        margin-top: 10px;
-        font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    .notice-svg {
+        fill: #f7f7f7;
+        height: 40px;
+        width: auto;
+        margin-bottom: 20px;
     }
 
-    .s-b-a-srt {
+    .left {
         display: flex;
         align-items: center;
-        font-size: 11pt;
-        font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         cursor: pointer;
-        margin-top: 10px;
-        width: fit-content;
-        width: -moz-fit-content;
-    }
-    
-    .s-b-a-srt-svg {
-        width: 15px;
-        height: 15px;
-        margin-left: 5px;
     }
 
-    .und {
-        font-family: "Fira Code", monospace;
-        font-size: 10pt;
-        color: var(--dm-gray);
-        word-break: break-all;
+    .right {
+        display: flex;
+        align-items: center;
     }
 
-    .nxt {
-        margin-top: 20px;
-    }
-
-    .nxt-btm {
+    .logo {
+        width: auto;
         height: 30px;
-        width: 100%;
     }
 
-    .nt-wn {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        background: #00000080;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .preload {
-        display: none;
-    }
-
-    .wrp {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 30px;
-    }
-
-    .lgo-z {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .lgo {
-        width: 90px;
-    }
-
-
-    .tit {
-        font-size: 25pt;
-        margin-top: 15px;
-    }
-
-    .ipt-z {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 30px;
-        width: 100%;
+    .logo-text {
+        color: #fbfbfb;
+        font-size: 14pt;
+        margin-left: 10px;
     }
 
     .srch {
         height: 40px;
         border-radius: 10px;
         border: none;
-        background-color: var(--light-gray);
+        background-color: #424242;
         padding: 5px 10px;
         font-size: 13pt;
         max-width: 500px;
-        width: 100%;
-    }
-
-    .srch.act {
         width: 100px;
         text-align: center;
+    }
+
+    .srch:focus {
+        background-color: #1c1c1c;
     }
 
     .entr {
@@ -268,17 +131,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--light-gray);
+        background-color: #424242;
         border-radius: 10px;
         cursor: pointer;
         margin-left: 10px;
-        fill: var(--middle-gray);
+        fill: #404040;
         cursor: not-allowed;
     }
 
     .entr.act {
-        fill: black;
+        fill: #fbfbfb;
         cursor: pointer;
+    }
+
+    .entr.fill {
+        background-color: #1c1c1c;
     }
 
     .ent-btn {
@@ -286,486 +153,25 @@
         height: 18px;
     }
 
-    .dis {
-        color: var(--gray);
-        cursor: not-allowed;
+    .srch, .entr {
+        background-color: rgba(28, 28, 28, 0.5);
+        fill: #808080;
+        color: #fbfbfb;
     }
 
-    .header {
-        position: fixed;
-        top: 0;
+    img {
         width: 100%;
+        height: auto;
         max-width: 1200px;
     }
 
-    .header-wrap {
-        padding: 30px;
-        width: fit-content;
-        width: -moz-fit-content;
-        margin-left: auto;
-        display: flex;
-    }
-
-    .stg-txt {
-        font-size: 12pt;
-        color: var(--middle-dark-gray);
-        cursor: pointer;
-        transition: .2s !important;
-    }
-
-    .stg-txt:hover {
-        color: var(--black);
-    }
-
-    .mnu-icn {
-        fill: var(--middle-dark-gray);
-        color: var(--middle-dark-gray);
-        cursor: pointer;
-        transition: none;
-        display: flex;
-        align-items: center;
-        transition: .2s !important;
-    }
-
-    .mnu-icn:hover {
-        fill: var(--black);
-        color: var(--black);
-    }
-
-    .blk {
-        fill: var(--black);
-        color: var(--black);
-    }
-
-    .mnu-ttp {
-        position: absolute;
-        display: none;
-        right: 30;
-        width: 150px;
-        background: var(--dark-white);
-        border: solid;
-        border-width: 1px;
-        border-color: var(--light-gray);
-        border-radius: 10px;
-        padding: 10px;
-        margin-top: 10px;
-        transition: opacity .3s, visibility .3s;
-    }
-
-    .mnu-ttp.modal {
-        display: block;
-    }
-
-    .ttp {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 10px;
-        font-size: 11pt;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: .2s !important;
-    }
-
-    .ttp-2 {
-        margin-top: 10px;
-    }
-
-    .ttp:hover {
-        background-color: var(--light-gray);
-    }
-
-    .ttp-svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .mnu-stg {
-        position: absolute;
-        right: 30;
-        width: fit-content;
-        width: -moz-fit-content;
-        background: var(--dark-white);
-        border-radius: 10px;
-        padding: 10px;
-        margin-top: 10px;
-        border: solid;
-        border-width: 1px;
-        border-color: #c8c8c8;
-        transform: translate(0, -110%);
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .mnu-stg.modal {
-        opacity: 1;
-        visibility: visible;
-        transform: translate(0, 0);
-    }
-
-    .mnu-txt {
-        font-size: 12pt;
-        margin-left: 10px;
-    }
-
-    .m-s-t {
-        font-weight: 700;
-        font-size: 13pt;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .stg-cls {
-        height: 11px;
-        width: 11px;
-        cursor: pointer;
-        margin-right: 5px;
-    }
-
-    .m-s-s {
-        margin-top: 25px;
-        font-size: 11pt;
-        font-weight: 600;
-    }
-
-    .m-s-tm {
-        display: flex;
-        align-items: center;
-        margin-top: 5px;
-    }
-
-    .m-s-tm-sys {
+    .img {
+        width: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        font-size: 9pt;
-        cursor: pointer;
-    }
-
-    .m-s-img-sys {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--middle-gray);
-    }
-
-    .m-s-tm-lgt {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 9pt;
-        color: #1876fb;
-        margin-left: 15px;
-        cursor: pointer;
-    }
-
-    .m-s-img-lgt {
-        width: 45px;
-        border: solid;
-        border-width: 2px;
-        border-radius: 14px;
-        border-color: #1876fb;
-    }
-
-    .m-s-tm-drk {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 9pt;
-        margin-left: 15px;
-        cursor: pointer;
-    }
-
-    .m-s-img-drk {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--middle-gray);
-    }
-
-    .animated {
-        font-size: 10pt;
-        padding: 2px 5px;
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        background-color: var(--light-gray);
-        border-color: #e9e9e9;
-        color: gray;
-        cursor: pointer;
-        width: 40px;
-        text-align: center;
-        transition: .2s !important;
-    }
-
-    .m-s-an-none,
-    .m-s-an-half,
-    .m-s-an-dflt,
-    .m-s-an-twce,
-    .m-s-an-fift {
-        color: gray;
-        background-color: var(--light-gray);
-        border-color: #e9e9e9;
-    }
-
-    .m-s-an-none.act,
-    .m-s-an-half.act,
-    .m-s-an-dflt.act,
-    .m-s-an-twce.act,
-    .m-s-an-fift.act {
-        color: #1876fb;
-        border-color: #e6effc;
-        background-color: #e6effc;
-    }
-
-    .margin-right {
-        margin-right: 10px;
-    }
-
-    .animated:hover {
-        color: #1876fb;
-        border-color: #1876fb;
-    }
-
-    .darkmode #load {
-        background: #000;
-        fill: #f7f7f7;
-    }
-
-    .darkmode .loadtoolong {
-        color: #f7f7f7;
-    }
-
-    .darkmode html, .darkmode body {
-        background: black;
-    }
-
-    .darkmode .srch, .darkmode .entr {
-        background-color: var(--dm-white);
-        fill: var(--dm-middle-gray);
-        color: var(--dm-black);
-    }
-    
-    .darkmode .entr.act {
-        fill: var(--dm-black);
-    }
-
-    .darkmode > .sre {
-        color: var(--dm-gray);
-    }
-
-    .darkmode .tit {
-        color: var(--dm-black);
-    }
-
-    .darkmode .sre-act {
-        color: var(--dm-black);
-    }
-
-    .darkmode .stg-txt {
-        color: var(--dm-gray);
-    }
-
-    .darkmode .mnu-icn {
-        fill: var(--dm-gray);
-        color: var(--dm-gray);
-    }
-
-    .darkmode .stg-txt:hover {
-        color: var(--dm-black);
-    }
-
-    .darkmode .mnu-icn:hover {
-        fill: var(--dm-black);
-        color: var(--dm-black);
-    }
-    
-    .darkmode .blk {
-        fill: var(--dm-black);
-        color: var(--dm-black);
-    }
-
-    .darkmode .ttp {
-        color: var(--dm-black);
-        fill: var(--dm-black);
-    }
-
-    .darkmode .ttp:hover {
-        background: var(--dm-white);
-        color: var(--dm-black);
-    }
-
-    .darkmode .mnu-ttp, .darkmode .mnu-stg {
-        background: #0a0a0a;
-        border-color: var(--dm-light-gray);
-    }
-
-    .darkmode .m-s-t, .darkmode .m-s-s{
-        color: var(--dm-black);
-        fill: var(--dm-black);
-    }
-
-    .darkmode .m-s-tm-lgt {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        color: var(--dm-gray);
-    }
-
-    .darkmode .m-s-img-lgt {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--dm-gray);
-    }
-
-    .darkmode .m-s-tm-drk {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #1876fb;
-        cursor: pointer;
-    }
-
-    .darkmode .m-s-img-drk {
-        width: 45px;
-        border: solid;
-        border-width: 2px;
-        border-radius: 14px;
-        filter: brightness(1);
-        border-color: #1876fb;
-    }
-
-    .darkmode .m-s-tm-sys {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        color: var(--dm-gray);
-    }
-
-    .darkmode .m-s-img-sys {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--dm-gray);
-    }
-
-    .darkmode .apidoc {
-        background: black;
-    }
-
-    .darkmode .mdl-hdr {
-        color: var(--dm-black);
-        fill: var(--dm-black);
-    }
-
-    .darkmode .mdl-scn {
-        color: var(--dm-black);
-    }
-
-    .darkmode .mdl-srn {
-        background: var(--dm-white);
-        color: var(--dm-black);
-        border: solid;
-        border-width: 1px;
-        border-color: var(--dm-gray);
-    }
-
-    .darkmode .s-b-a-srt {
-        fill: var(--dm-black);
-    }
-
-    .darkmode .animated {
-        color: #808080;
-        background-color: #282828;
-        border-color: #1d1d1d;
-    }
-
-    .darkmode .m-s-an-none,
-    .darkmode .m-s-an-half,
-    .darkmode .m-s-an-dflt,
-    .darkmode .m-s-an-twce,
-    .darkmode .m-s-an-fift {
-        color: #808080;
-        background-color: #000000;
-        border-color: #1d1d1d;
-    }
-
-    .darkmode .m-s-an-none.act,
-    .darkmode .m-s-an-half.act,
-    .darkmode .m-s-an-dflt.act,
-    .darkmode .m-s-an-twce.act,
-    .darkmode .m-s-an-fift.act {
-        color: #1876fb;
-        border-color: #061933;
-        background-color: #061933;
-    }
-
-    .darkmode .animated:hover {
-        color: #1876fb;
-        border-color: #1876fb;
-    }
-
-    .system .m-s-tm-lgt {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        color: var(--dm-gray);
-    }
-
-    .system .m-s-img-lgt {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--dm-gray);
-    }
-
-    .system .m-s-tm-drk {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        color: var(--dm-gray);
-    }
-
-    .system .m-s-img-drk {
-        width: 45px;
-        border: solid;
-        border-radius: 14px;
-        border-width: 2px;
-        filter: brightness(0.5);
-        border-color: var(--dm-gray);
-    }
-
-    .system .m-s-tm-sys {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #1876fb;
-        cursor: pointer;
-    }
-
-    .system .m-s-img-sys {
-        width: 45px;
-        border: solid;
-        border-width: 2px;
-        border-radius: 14px;
-        filter: brightness(1);
-        border-color: #1876fb;
+        padding-top: 40px;
     }
 
     #load {
@@ -777,7 +183,8 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity .5s, visibility .5s, transform .5s;
-        background: #fff;
+        background: #000;
+        fill: #f7f7f7;
         z-index: 10000;
         width: 100vw;
         height: 100vh;
@@ -802,21 +209,7 @@
         display: none;
         font-size: 10pt;
         text-align: center;
-        color: black;
-    }
-
-    @media screen and (max-width: 450px) {
-        .mnu-stg {
-            top: 450%;
-            left: 50%;
-            transform: translate(-200%, -50%);
-            box-shadow: #0000005b 0px 0px 100px 0;
-            width: 80%;
-        }
-
-        .mnu-stg.modal {
-            transform: translate(-50%, -50%);
-        }
+        color: #f7f7f7;
     }
 </style>
 <!DOCTYPE html>
@@ -827,299 +220,43 @@
     <link rel="icon" type="svg" sizes="512x512" href="./Pt1xz.png">
     <meta property="og:image" content="./rZK2h.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta property="og:description" content="HitomiViewer — 가장 편리한 히토미 미러링">
+    <meta property="og:description" content="HitomiViewer — Viewer 페이지">
     <title>HitomiViewer — 가장 편리한 히토미 미러링</title>
     <div id="load"><div style="text-align: center;"><svg class="rotate" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="30" width="30" viewBox="0 0 540.129 540.129" style="enable-background:new 0 0 540.129 540.129;" xml:space="preserve"><g><g><path d="M28.074,204.831C64.043,70.586,202.483-9.364,336.746,26.623C403.513,44.5,461.549,94.572,494.991,162.196l-51.11-13.696l-4.663,17.409l69.562,18.633c0.756,0.198,1.548,0.306,2.322,0.306c1.566,0,3.114-0.414,4.519-1.225c2.071-1.206,3.583-3.151,4.195-5.473l18.633-69.562l-17.391-4.645l-12.235,45.66C472.75,79.709,411.622,28.017,341.409,9.215C197.64-29.275,49.209,56.346,10.683,200.168c-6.139,22.917-9.271,46.411-9.271,69.886h18.002C19.433,248.163,22.331,226.2,28.074,204.831z"/><path d="M520.714,270.054c0,21.891-2.916,43.836-8.641,65.223c-35.97,134.246-174.41,214.195-308.673,178.208c-66.766-17.877-124.803-67.949-158.245-135.572l51.113,13.696l4.663-17.409l-69.562-18.633c-2.304-0.576-4.753-0.306-6.823,0.918c-2.071,1.206-3.583,3.151-4.195,5.473L1.718,431.52l17.39,4.644l12.22-45.651c36.073,69.89,97.199,121.579,167.41,140.381c23.313,6.247,46.735,9.235,69.814,9.235c119.232,0,228.634-79.697,260.894-200.189c6.139-22.917,9.271-46.411,9.271-69.886H520.714L520.714,270.054z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></div><div class="loadtoolong">로딩이 너무 오래 걸리나요?<br><a href="/lowqul">저사양 모드</a>를 사용해 보세요.</div></div>
     <script>
-        agent = navigator.userAgent.toLowerCase();
-
-        if (agent.indexOf("chrome") < 0 && agent.indexOf("safari") < 0 && agent.indexOf("firefox") < 0 && agent.indexOf("kakaotalk") < 0) {
-            window.location.href = "./hv-lowqul";
-        }
-
-        
-       document.getElementById('load').classList.toggle('modal');
+        document.getElementById('load').classList.toggle('modal');
     </script>
 </head>
 <body>
-    <img class="preload" src="./EshmT.png">
-    <div class="wrp">
-        <div class="header">
-            <div class="header-wrap">
-                <div class="mnu">
-                    <div class="mnu-icn" onclick="onclk(1);">
-                        <svg class="ttp-stn ttp-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 456.556 456.556" style="enable-background:new 0 0 456.556 456.556;" xml:space="preserve"><g><path d="M97.564,79.443H13.428C6.011,79.443,0,73.428,0,66.015s6.011-13.428,13.428-13.428h84.136   c7.417,0,13.428,6.015,13.428,13.428S104.981,79.443,97.564,79.443z"/><path d="M145.643,127.518c-33.916,0-61.507-27.591-61.507-61.504c0-33.92,27.591-61.511,61.507-61.511s61.507,27.591,61.507,61.511   C207.15,99.928,179.559,127.518,145.643,127.518z M145.643,31.36c-19.107,0-34.651,15.547-34.651,34.654   s15.544,34.647,34.651,34.647s34.651-15.54,34.651-34.647S164.75,31.36,145.643,31.36z"/><path d="M443.128,79.443H242.433c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h200.694   c7.417,0,13.428,6.015,13.428,13.428S450.545,79.443,443.128,79.443z"/><path d="M325.936,289.782c-33.917,0-61.507-27.591-61.507-61.504s27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   S359.853,289.782,325.936,289.782z M325.936,193.631c-19.107,0-34.651,15.54-34.651,34.647s15.544,34.647,34.651,34.647   s34.651-15.54,34.651-34.647S345.043,193.631,325.936,193.631z"/><path d="M229.149,241.706H13.428C6.011,241.706,0,235.691,0,228.278s6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428S236.566,241.706,229.149,241.706z"/><path d="M443.128,241.706h-69.113c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428S450.545,241.706,443.128,241.706z"/><path d="M130.62,452.052c-33.916,0-61.507-27.591-61.507-61.511c0-33.913,27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   C192.127,424.461,164.536,452.052,130.62,452.052z M130.62,355.894c-19.107,0-34.651,15.54-34.651,34.647   s15.544,34.654,34.651,34.654s34.651-15.547,34.651-34.654S149.727,355.894,130.62,355.894z"/><path d="M443.128,403.97H227.407c-7.417,0-13.428-6.015-13.428-13.428c0-7.413,6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428C456.556,397.955,450.545,403.97,443.128,403.97z"/><path d="M82.541,403.97H13.428C6.011,403.97,0,397.955,0,390.541c0-7.413,6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428C95.969,397.955,89.958,403.97,82.541,403.97z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                        <span class="mnu-txt">사이트 설정</span>
-                    </div>
-                    <div class="mnu-stg">
-                        <div class="m-s-t">
-                            <svg class="ttp-stn ttp-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 456.556 456.556" style="enable-background:new 0 0 456.556 456.556;" xml:space="preserve"><g><path d="M97.564,79.443H13.428C6.011,79.443,0,73.428,0,66.015s6.011-13.428,13.428-13.428h84.136   c7.417,0,13.428,6.015,13.428,13.428S104.981,79.443,97.564,79.443z"/><path d="M145.643,127.518c-33.916,0-61.507-27.591-61.507-61.504c0-33.92,27.591-61.511,61.507-61.511s61.507,27.591,61.507,61.511   C207.15,99.928,179.559,127.518,145.643,127.518z M145.643,31.36c-19.107,0-34.651,15.547-34.651,34.654   s15.544,34.647,34.651,34.647s34.651-15.54,34.651-34.647S164.75,31.36,145.643,31.36z"/><path d="M443.128,79.443H242.433c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h200.694   c7.417,0,13.428,6.015,13.428,13.428S450.545,79.443,443.128,79.443z"/><path d="M325.936,289.782c-33.917,0-61.507-27.591-61.507-61.504s27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   S359.853,289.782,325.936,289.782z M325.936,193.631c-19.107,0-34.651,15.54-34.651,34.647s15.544,34.647,34.651,34.647   s34.651-15.54,34.651-34.647S345.043,193.631,325.936,193.631z"/><path d="M229.149,241.706H13.428C6.011,241.706,0,235.691,0,228.278s6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428S236.566,241.706,229.149,241.706z"/><path d="M443.128,241.706h-69.113c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428S450.545,241.706,443.128,241.706z"/><path d="M130.62,452.052c-33.916,0-61.507-27.591-61.507-61.511c0-33.913,27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   C192.127,424.461,164.536,452.052,130.62,452.052z M130.62,355.894c-19.107,0-34.651,15.54-34.651,34.647   s15.544,34.654,34.651,34.654s34.651-15.547,34.651-34.654S149.727,355.894,130.62,355.894z"/><path d="M443.128,403.97H227.407c-7.417,0-13.428-6.015-13.428-13.428c0-7.413,6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428C456.556,397.955,450.545,403.97,443.128,403.97z"/><path d="M82.541,403.97H13.428C6.011,403.97,0,397.955,0,390.541c0-7.413,6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428C95.969,397.955,89.958,403.97,82.541,403.97z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>설정
-                            <svg class="stg-cls" onclick="onclk(1);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285    L284.286,256.002z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                        </div>
-                        <div class="m-s-s">테마</div>
-                        <div class="m-s-tm">
-                            <div class="m-s-tm-sys" onclick="onclk(3);">
-                                <img class="m-s-img-sys" src="./kMwFe.png">
-                                시스템
-                            </div>
-                            <div class="m-s-tm-lgt" onclick="stop(); onclk(4);">
-                                <img class="m-s-img-lgt" src="./Ra2lP.png">
-                                라이트
-                            </div>
-                            <div class="m-s-tm-drk" onclick="stop(); onclk(5);">
-                                <img class="m-s-img-drk" src="./Pt1xz.png">
-                                다크
-                            </div>
-                        </div>
-                        <div class="m-s-s">애니메이션 배율</div>
-                        <div class="m-s-tm">
-                            <div class="animated m-s-an-none margin-right" onclick="onclk(8);">
-                                없음
-                            </div>
-                            <div class="animated m-s-an-half margin-right" onclick="onclk(9);">
-                                0.5×
-                            </div>
-                            <div class="animated m-s-an-dflt margin-right" onclick="onclk(10);">
-                                기본
-                            </div>
-                            <div class="animated m-s-an-twce margin-right" onclick="onclk(11);">
-                                2×
-                            </div>
-                            <div class="animated m-s-an-fift" onclick="onclk(12);">
-                                5×
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="header">
+        <div class="header-wrap">
+            <div class="left" onclick="location.href = 'https://hitomi.hibot.pw';">
+                <img class="logo" src="./Pt1xz.png">
+                <div class="logo-text">HitomiViewer</div>
+            </div>
+            <div class="right">
+                <input class="srch" id="getnum" type="none" placeholder="갤러리 ID" maxlength="7" onkeyup="this.value = this.value.replace(/[^0-9]/g,'');">
+                <label for="srch" class="entr" id="btn">
+                    <svg class="ent-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M507.608,4.395c-4.243-4.244-10.609-5.549-16.177-3.321L9.43,193.872c-5.515,2.206-9.208,7.458-9.42,13.395    c-0.211,5.936,3.101,11.437,8.445,14.029l190.068,92.181l92.182,190.068c2.514,5.184,7.764,8.455,13.493,8.455    c0.178,0,0.357-0.003,0.536-0.01c5.935-0.211,11.189-3.904,13.394-9.419l192.8-481.998    C513.156,15.001,511.851,8.638,507.608,4.395z M52.094,209.118L434.72,56.069L206.691,284.096L52.094,209.118z M302.883,459.907    l-74.979-154.599l228.03-228.027L302.883,459.907z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                </label>
             </div>
         </div>
-        <div class="lgo-z">
-            <img class="lgo" src="./tiVpX.png">
-            <div class="tit">HitomiViewer</div>
-        </div>
-        <div class="ipt-z">
-            <input class="srch" id="getnum" type="none" placeholder="갤러리 ID를 입력하세요." maxlength="7" onkeyup="this.value = this.value.replace(/[^0-9]/g,'');">
-            <label for="srch" class="entr" id="btn">
-                <svg class="ent-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M507.608,4.395c-4.243-4.244-10.609-5.549-16.177-3.321L9.43,193.872c-5.515,2.206-9.208,7.458-9.42,13.395    c-0.211,5.936,3.101,11.437,8.445,14.029l190.068,92.181l92.182,190.068c2.514,5.184,7.764,8.455,13.493,8.455    c0.178,0,0.357-0.003,0.536-0.01c5.935-0.211,11.189-3.904,13.394-9.419l192.8-481.998    C513.156,15.001,511.851,8.638,507.608,4.395z M52.094,209.118L434.72,56.069L206.691,284.096L52.094,209.118z M302.883,459.907    l-74.979-154.599l228.03-228.027L302.883,459.907z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-            </label>
-        </div>
-        <div class="lowqulity">페이지가 깨지거나 로드가 오래 걸리거나 제대로 동작하지 않으면 <a href="./hv-lowqul">저사양 모드</a>를 사용하세요.</div>
     </div>
+    <div class="notice">
+        <svg class="notice-svg" version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none"><path d="M1630 5114 c-422 -42 -767 -192 -1059 -461 -299 -275 -487 -629 -552 -1043 -19 -119 -20 -1006 -1 -1135 113 -765 702 -1365 1462 -1490 52 -9 173 -18 268 -22 l172 -6 0 -414 c0 -457 0 -459 62 -507 41 -31 84 -41 135 -31 34 6 94 62 513 480 l475 473 220 5 c225 6 347 20 485 58 622 170 1093 646 1254 1269 47 182 51 243 51 755 0 509 -3 553 -51 745 -152 614 -648 1114 -1259 1271 -209 54 -181 52 -1195 54 -520 1 -961 1 -980 -1z m1885 -324 c677 -77 1201 -604 1275 -1282 13 -126 13 -810 -1 -936 -74 -683 -598 -1207 -1281 -1281 -54 -6 -188 -11 -298 -11 -150 0 -209 -4 -233 -14 -18 -8 -188 -170 -382 -365 l-350 -351 -5 314 c-5 298 -6 316 -26 342 -51 69 -49 68 -347 76 -320 7 -413 21 -590 84 -455 162 -807 554 -915 1019 -34 149 -42 266 -42 655 0 398 7 508 45 665 136 572 638 1016 1226 1084 108 12 1814 13 1924 1z"/><path d="M2400 3360 l0 -800 160 0 160 0 0 800 0 800 -160 0 -160 0 0 -800z"/><path d="M2400 2080 l0 -160 160 0 160 0 0 160 0 160 -160 0 -160 0 0 -160z"/></g></svg>
+        몰입도를 위해 뷰어 페이지에서는 다크 모드가 강제로 적용되며, 메인 페이지의 설정이 반영되지 않습니다.
+    </div>
+    <div id="image" class="img"></div>
 </body>
 </html>
+<script src="./view.js"></script>
 <script>
-    checklocal = localStorage.getItem("darkmode");
-
-    if (checklocal !== null) {
-        if (checklocal === "true") {
-            $("html").addClass("darkmode");
-            $(".lgo").attr("src", "./EshmT.png")
-            localStorage.setItem("darkmode", "true");
-        } else if (checklocal === "false") {
-            $("html").removeClass("darkmode");
-            $(".lgo").attr("src", "./tiVpX.png")
-            localStorage.setItem("darkmode", "false");
-        } else if (checklocal === "system") {
-            onclk(3);
-        }
-    } else {
-        onclk(3);
-    }
-
-    checklocalanimated = localStorage.getItem("animated");
-
-    if (checklocalanimated !== null) {
-        if (checklocalanimated === "0") {
-            localStorage.setItem("animated", "0");
-            onclk(8);
-        } else if (checklocalanimated === "0.5") {
-            localStorage.setItem("animated", "0.5");
-            onclk(9);
-        } else if (checklocalanimated === "1") {
-            localStorage.setItem("animated", "1");
-            onclk(10);
-        } else if (checklocalanimated === "2") {
-            localStorage.setItem("animated", "2");
-            onclk(11);
-        } else if (checklocalanimated === "5") {
-            localStorage.setItem("animated", "5");
-            onclk(12);
-        }
-    } else {
-        onclk(10);
-    }
-
-    oncTtp = 0;
-    oncStg = 0;
-    onIntv = 0;
-    function onclk(id) {
-        if (id === 1) {
-            oncStg++;
-            if (oncStg === 1) {
-                $(".mnu-icn").addClass("blk");
-                $(".mnu-stg").addClass("modal");
-            } else if (oncStg === 2) {
-                $(".mnu-stg").removeClass("modal");
-                $(".mnu-icn").removeClass("blk");
-                oncStg = 0;
-            }
-        }
-
-        if (id === 3) {
-            localStorage.setItem("darkmode", "system");
-            onIntv = 1;
-            isStop = null;
-            var detectTheme = setInterval(function() {
-            if (!isStop) {
-                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                    $("html").addClass("darkmode");
-                    $("html").addClass("system");
-                    $(".lgo").attr("src", "./EshmT.png")
-                } else {
-                    $("html").removeClass("darkmode");
-                    $("html").addClass("system");
-                    $(".lgo").attr("src", "./tiVpX.png")
-                }
-            } else {
-                onIntv = 0;
-                clearInterval(detectTheme);
-            }
-            }, 1)
-        }
-
-        if (id === 4) {
-            checklocal = localStorage.getItem("darkmode");
-            if (checklocal !== null) {
-                if (checklocal === "true" || checklocal === "system") {
-                    $("html").removeClass("darkmode");
-                    $(".lgo").attr("src", "./tiVpX.png")
-                    localStorage.setItem("darkmode", "false");
-                }
-            } else {
-                $("html").removeClass("darkmode");
-                $(".lgo").attr("src", "./tiVpX.png")
-                localStorage.setItem("darkmode", "false");
-            }
-        }
-        
-        if (id === 5) {
-            checklocal = localStorage.getItem("darkmode");
-            if (checklocal !== null) {
-                if (checklocal === "false" || checklocal === "system") {
-                    $("html").addClass("darkmode");
-                    $(".lgo").attr("src", "./EshmT.png")
-                    localStorage.setItem("darkmode", "true");
-                }
-            } else {
-                $(".lgo").attr("src", "./EshmT.png")
-                $("html").addClass("darkmode");
-                localStorage.setItem("darkmode", "true");
-            }
-        }
-
-        if (id === 6) {
-            $(".apidoc").addClass("modal");
-        }
-
-        if (id === 7) {
-            $(".apidoc").removeClass("modal");
-        }
-
-        if (id === 8) {
-            checklocal = localStorage.getItem("animated");
-            if (checklocal !== null) {
-                if (checklocal === "0" || checklocal === "0.5" || checklocal === "1" || checklocal === "2" || checklocal === "5") {
-                    $(".animated").removeClass("act");
-                    $(".m-s-an-none").addClass("act");
-                    $("*").css("transition", "none");
-                    localStorage.setItem("animated", "0");
-                }
-            } else {
-                $(".animated").removeClass("act");
-                $(".m-s-an-none").addClass("act");
-                $("*").css("transition", "none");
-                localStorage.setItem("animated", "0");
-            }
-        }
-
-        if (id === 9) {
-            checklocal = localStorage.getItem("animated");
-            if (checklocal !== null) {
-                if (checklocal === "0" || checklocal === "0.5" || checklocal === "1" || checklocal === "2" || checklocal === "5") {
-                    $(".animated").removeClass("act");
-                    $(".m-s-an-half").addClass("act");
-                    $("*").css("transition", ".1s");
-                    localStorage.setItem("animated", "0.5");
-                }
-            } else {
-                $(".animated").removeClass("act");
-                $(".m-s-an-half").addClass("act");
-                $("*").css("transition", ".1s");
-                localStorage.setItem("animated", "0.5");
-            }
-        }
-
-        if (id === 10) {
-            checklocal = localStorage.getItem("animated");
-            if (checklocal !== null) {
-                if (checklocal === "0" || checklocal === "0.5" || checklocal === "1" || checklocal === "2" || checklocal === "5") {
-                    $(".animated").removeClass("act");
-                    $(".m-s-an-dflt").addClass("act");
-                    $("*").css("transition", ".2s");
-                    localStorage.setItem("animated", "1");
-                }
-            } else {
-                $(".animated").removeClass("act");
-                $(".m-s-an-dflt").addClass("act");
-                $("*").css("transition", ".2s");
-                localStorage.setItem("animated", "1");
-            }
-        }
-
-        if (id === 11) {
-            checklocal = localStorage.getItem("animated");
-            if (checklocal !== null) {
-                if (checklocal === "0" || checklocal === "0.5" || checklocal === "1" || checklocal === "2" || checklocal === "5") {
-                    $(".animated").removeClass("act");
-                    $(".m-s-an-twce").addClass("act");
-                    $("*").css("transition", ".4s");
-                    localStorage.setItem("animated", "2");
-                }
-            } else {
-                $(".animated").removeClass("act");
-                $(".m-s-an-dflt").addClass("act");
-                $("*").css("transition", ".2s");
-                localStorage.setItem("animated", "2");
-            }
-        }
-
-        if (id === 12) {
-            checklocal = localStorage.getItem("animated");
-            if (checklocal !== null) {
-                if (checklocal === "0" || checklocal === "0.5" || checklocal === "1" || checklocal === "2" || checklocal === "5") {
-                    $(".animated").removeClass("act");
-                    $(".m-s-an-fift").addClass("act");
-                    $("*").css("transition", "1s");
-                    localStorage.setItem("animated", "5");
-                }
-            } else {
-                $(".animated").removeClass("act");
-                $(".m-s-an-fift").addClass("act");
-                $("*").css("transition", "1s");
-                localStorage.setItem("animated", "5");
-            }
-        }
-    }
-
-    function stop() {
-        isStop = true;
-        $("html").removeClass("system");
-    }
-
-    function openInNewTab(url) {
-        var win = window.open(url, '_blank');
-        win.focus();
-    }
+    setTimeout(function() {
+        $(".loadtoolong").css("display", "block");
+    }, 2000);
+    $(window).ready(function() {
+        $("#load").removeClass("modal");
+    });
     
     document.getElementById("getnum").addEventListener("keydown", function (event) {
         if (event.keyCode === 13) {
@@ -1136,20 +273,34 @@
         val = $(".srch").val();
         $(".srch").val(val.replace(/[^0-9]/g,''));
         if (val != "") {
-            $(".srch").addClass("act");
-            $(".srch").removeAttr("placeholder");
             $(".entr").addClass("act");
         } else {
-            $(".srch").removeClass("act");
-            $(".srch").attr("placeholder", "갤러리 ID를 입력하세요.")
             $(".entr").removeClass("act");
         }
     });
 
-    setTimeout(function() {
-        $(".loadtoolong").css("display", "block");
-    }, 2000);
-    $(window).ready(function() {
-        $("#load").removeClass("modal");
+    $(".srch").focus(function () {
+        $(".entr").addClass("fill");
     });
+
+    $(".srch").blur(function () {
+        $(".entr").removeClass("fill");
+    });
+
+    scroll = 0;
+    change = 20;
+
+    $(window).scroll(function(){
+        position = $(this).scrollTop();
+        if( Math.abs(scroll - position) <= change) return;
+        if ((position > scroll) && (scroll>0)) {
+            $(".header").css("top","-100px");
+        } else {
+            $(".header").css("top","0px");
+        }
+        scroll = position;
+    });
+
+    $("img").attr("onerror", "this.parentNode.style.display='none'");
+    onerror
 </script>
