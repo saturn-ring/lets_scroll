@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const fs = require('fs');
 var exec = require('child_process').execFile;
 
 const isdev = true;
@@ -12,14 +13,9 @@ function createWindow () {
         autoHideMenuBar: true,
         icon: path.join(__dirname, '../files/Pt1xz.png'),
         webPreferences: {
-            nodeIntegration: true,
+            nodeIntegration: false,
             contextIsolation: true,
-            enableRemoteModule: true,
             preload: path.join(__dirname, 'preload.js')
-        },
-        vibrancy: {
-            'theme': 'appearance-based',
-            'effect': 'acrylic'
         }
     })
     win.loadFile(`${require('path').join(__dirname, '../files/index.html')}`)
@@ -29,6 +25,24 @@ function createWindow () {
         if (isdev) {
             win.webContents.openDevTools();
         }
+    });
+    win.webContents.on('will-navigate', (e, url) => {
+        e.preventDefault();
+        if (!fs.existsSync(url)) {
+            console.log(url);
+            if(url.endsWith('files')||url.endsWith('files/')) {
+                url = path.join(__dirname, '../files/index.html');
+                win.loadURL(url);
+                return;
+            }
+            if(!url.includes(app.getAppPath())) {
+                url = path.join(__dirname, '../files', url.split('/')[url.split('/').length - 1]);
+            }
+            if (!url.split('?')[0].includes('.html')) {
+                url = url.split('?')[0] + '.html' + (url.split('?').length > 1 ? '?' + url.split('?')[1] : '');
+            }
+        }
+        win.loadURL(url);
     });
     win.on('closed', () => {
         win = null;
@@ -40,14 +54,14 @@ function run(){
         if(!!err) console.log(err);
         console.log(data.toString());
      });
- }
+}
 
 app.whenReady().then(() => {
     createWindow()
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-    run();
+    //run();
 })
 
 app.on('window-all-closed', function () {
