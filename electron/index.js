@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
-var exec = require('child_process').execFile;
+require('@electron/remote/main').initialize()
 
 const isdev = true;
 
@@ -10,11 +10,13 @@ function createWindow () {
         width: 800,
         height: 600,
         show: false,
+        titleBarStyle: 'hidden',
         autoHideMenuBar: true,
         icon: path.join(__dirname, '../files/Pt1xz.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
+            enableRemoteModule: true,
             preload: path.join(__dirname, 'preload.js')
         }
     })
@@ -46,13 +48,8 @@ function createWindow () {
     win.on('closed', () => {
         win = null;
     });
-}
 
-function run(){
-    exec(path.join(__dirname, "../builded/windows_lets_scroll_x86-64.exe"), function(err, data) {
-        if(!!err) console.log(err);
-        console.log(data.toString());
-     });
+    require("@electron/remote/main").enable(win.webContents)
 }
 
 app.whenReady().then(() => {
@@ -60,7 +57,6 @@ app.whenReady().then(() => {
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
-    //run();
 })
 
 app.on('window-all-closed', function () {
