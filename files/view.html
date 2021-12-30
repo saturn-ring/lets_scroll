@@ -40,7 +40,6 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
         background: black;
-        color: #202020
     }
 
     .header {
@@ -64,7 +63,7 @@
         align-items: center;
         justify-content: space-between;
     }
-
+    
     .notice {
         height: 500px;
         width: 100%;
@@ -74,8 +73,7 @@
         justify-content: center;
         flex-direction: column;
         text-align: center;
-        padding: 20px;
-        margin-top: 60px;
+        padding: 60px 20px 20px 20px;
         font-size: 13pt;
         font-weight: 600;
     }
@@ -171,7 +169,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 40px;
     }
 
     #load {
@@ -211,6 +208,12 @@
         text-align: center;
         color: #f7f7f7;
     }
+    
+    @media screen and (max-width: 550px) {
+        .notice {
+            height: 250px;
+        }
+    }
 </style>
 <!DOCTYPE html>
 <html lang="ko">
@@ -227,13 +230,13 @@
         document.getElementById('load').classList.toggle('modal');
     </script>
 </head>
-<body>
-    <div class="header">
-        <div class="header-wrap">
-            <div class="left" onclick="location.href = 'https://hitomi.hibot.pw';">
-                <img class="logo" src="./Pt1xz.png">
-                <div class="logo-text">HitomiViewer</div>
-            </div>
+ <body>
+     <div class="header">
+         <div class="header-wrap">
+             <div class="left" onclick="location.href = 'https://hviewer.live';">
+                 <img class="logo" src="./Pt1xz.png">
+                 <div class="logo-text">HitomiViewer</div>
+             </div>
             <div class="right">
                 <input class="srch" id="getnum" type="none" placeholder="갤러리 ID" maxlength="7" onkeyup="this.value = this.value.replace(/[^0-9]/g,'');">
                 <label for="srch" class="entr" id="btn">
@@ -253,6 +256,7 @@
     setTimeout(function() {
         $(".loadtoolong").css("display", "block");
     }, 2000);
+
     $(window).ready(function() {
         $("#load").removeClass("modal");
     });
@@ -288,7 +292,6 @@
 
     scroll = 0;
     change = 20;
-
     $(window).scroll(function(){
         position = $(this).scrollTop();
         if( Math.abs(scroll - position) <= change) return;
@@ -299,7 +302,19 @@
         }
         scroll = position;
     });
-
-    $("img").attr("onerror", "this.parentNode.style.display='none'");
-    onerror
+    
+    fetch(`/link${location.search}`)
+    .then(response => response.json())
+    .then(response => {
+        if (response.length >= 1) {
+            const main = document.getElementById("image");
+            for (const s of response) {
+                let el = document.createElement("img");
+                main.append(el);
+                el.src = `/img?url=${s}`;
+                $("img").attr("onerror", "style.display='none'");
+            }
+        }
+        else document.write("ERROR");
+    });
 </script>
