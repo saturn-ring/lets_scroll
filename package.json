@@ -5,22 +5,38 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dadami-io/lets_scroll.git"
   },
   "keywords": [
-    "hitomi"
+    "hitomi",
+    "hitomi-viewer",
+    "hitomi viewer"
   ],
-  "author": "",
+  "author": "hibot",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dadami-io/lets_scroll/issues"
   },
+  "build": {
+    "appId": "com.hibot.hitomi-viewer",
+    "win": {
+      "target": "NSIS",
+      "icon": "./icon.ico"
+    },
+    "files": [
+      "**/*"
+    ]
+  },
   "homepage": "https://github.com/dadami-io/lets_scroll#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^16.0.5",
+    "electron-builder": "^22.14.5"
+  },
   "dependencies": {
     "@electron/remote": "^2.0.1",
     "custom-electron-titlebar": "^3.2.10"

@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 require('@electron/remote/main').initialize()
 
-const isdev = true;
+const isdev = false;
 
 function createWindow () {
     let win = new BrowserWindow({
@@ -12,7 +12,7 @@ function createWindow () {
         show: false,
         titleBarStyle: 'hidden',
         autoHideMenuBar: true,
-        icon: path.join(__dirname, '../files/Pt1xz.png'),
+        icon: path.join(__dirname, './files/Pt1xz.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
@@ -20,7 +20,7 @@ function createWindow () {
             preload: path.join(__dirname, 'preload.js')
         }
     })
-    win.loadFile(`${require('path').join(__dirname, '../files/index.html')}`)
+    win.loadFile(`${require('path').join(__dirname, './files/index.html')}`)
     win.once('ready-to-show', () => {
         win.show();
         win.maximize();
@@ -32,12 +32,12 @@ function createWindow () {
         e.preventDefault();
         if (!fs.existsSync(url)) {
             if(url.endsWith('files')||url.endsWith('files/')) {
-                url = path.join(__dirname, '../files/index.html');
+                url = path.join(__dirname, './files/index.html');
                 win.loadURL(url);
                 return;
             }
             if(!url.includes(app.getAppPath())) {
-                url = path.join(__dirname, '../files', url.split('/')[url.split('/').length - 1]);
+                url = path.join(__dirname, './files', url.split('/')[url.split('/').length - 1]);
             }
             if (!url.split('?')[0].includes('.html')) {
                 url = url.split('?')[0] + '.html' + (url.split('?').length > 1 ? '?' + url.split('?')[1] : '');
