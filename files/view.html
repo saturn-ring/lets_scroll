@@ -482,7 +482,7 @@
                 let url = url_from_url_from_hash(id, file);
                 let element = document.createElement("img");
                 main.append(element);
-                el.src = `https://hviewer.live/img?url=${url}`;
+                element.src = `https://hviewer.live/img?url=${url}`;
                 $("img").attr("onerror", "this.style.display='none'");
             }
 
