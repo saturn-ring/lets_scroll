@@ -3,10 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
-	"regexp"
-	"strconv"
+	"os"
 )
 
 type Hitomi struct{}
@@ -30,25 +30,19 @@ type File struct {
 }
 
 const (
-	base = "https://ltn.hitomi.la/galleries/%s.js"
-	img  = "https://a.hitomi.la/%s/1639745412/%d/%s.%s"
+	host = "https://ltn.hitomi.la"
+	path = host + "/galleries/%s.js"
 )
 
-var (
-	reg  = regexp.MustCompile(`//..?\.hitomi\.la/`)
-	hash = regexp.MustCompile(`/[a-f0-9]{64}`)
-)
+func (h Hitomi) GetLink(id string) (f []File) {
 
-func (h Hitomi) GetLink(id string) []string {
-
-	var link []string
 	var data Body
 
-	url := fmt.Sprintf(base, id)
+	url := fmt.Sprintf(path, id)
 	resp, err := http.Get(url)
 
 	if err != nil {
-		return link
+		return
 	}
 
 	defer resp.Body.Close()
@@ -56,59 +50,13 @@ func (h Hitomi) GetLink(id string) []string {
 	body, _ := ioutil.ReadAll(resp.Body)
 	_ = json.Unmarshal(body[18:], &data)
 
-	for _, v := range data.Files {
-		image := h.Decipher(&v)
-		link = append(link, image)
-	}
-
-	return link
-}
-
-func (h Hitomi) Decipher(file *File) string {
-
-	var dir, ext, url, retval, m string
-
-	if file.Haswebp == 1 {
-		dir = "webp"
-		ext = "webp"
-		retval = "a"
-	}
-
-	if file.Hasavif == 1 {
-		dir = "avif"
-		ext = "avif"
-		retval = "a"
-	}
-
-	if dir == "" {
-		dir = "images"
-		retval = "b"
-		ext = file.Name[len(file.Name)-3:]
-	}
-
-	length := len(file.Hash)
-
-	a := file.Hash[length-1 : length-0]
-	b := file.Hash[length-3 : length-1]
-
-	g, _ := strconv.ParseInt(a+b, 16, 0)
-	url = fmt.Sprintf(img, dir, g, file.Hash, ext)
-
-	m = hash.FindString(url)
-	length = len(m)
-
-	a = m[length-1:]
-	b = m[62 : length-1]
-
-	n, _ := strconv.ParseInt(a+b, 16, 0)
-	retval = string(rune(97+h.gg(n))) + retval
-
-	m = fmt.Sprintf("//%s.hitomi.la/", retval)
-	return reg.ReplaceAllString(url, m)
-
+	f = data.Files
+	return
 }
 
 func (h Hitomi) GetIMG(url string) []byte {
+
+	fmt.Println(url)
 
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Add("referer", "https://hitomi.la")
@@ -124,4 +72,31 @@ func (h Hitomi) GetIMG(url string) []byte {
 
 	bytes, _ := ioutil.ReadAll(resp.Body)
 	return bytes
+}
+
+func (h Hitomi) GetJS() {
+
+	h.Download("./files/gg.js", "https://ltn.hitomi.la/gg.js")
+	h.Download("./files/common.js", "https://ltn.hitomi.la/common.js")
+
+}
+
+func (h Hitomi) Download(path, url string) {
+
+	out, err := os.Create(path)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer out.Close()
+
+	resp, err := http.Get(url)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer resp.Body.Close()
+	io.Copy(out, resp.Body)
 }
