@@ -2,41 +2,25 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	PATH "path"
 )
 
+func serveIMG(w http.ResponseWriter, r *http.Request) {
+
+	url := r.URL.Query().Get("url")
+	w.Write(Hitomi{}.GetIMG(url))
+
+}
+
 func getLink(w http.ResponseWriter, r *http.Request) {
 
-	var hitomi Hitomi
-
 	Id := r.URL.Query().Get("id")
-	list := hitomi.GetLink(Id)
+	list := Hitomi{}.GetLink(Id)
 
 	body, _ := json.Marshal(list)
 	w.Write(body)
 
-}
-
-func serveIMG(w http.ResponseWriter, r *http.Request) {
-
-	url := r.URL.Query().Get("url")
-
-	req, _ := http.NewRequest("GET", url, nil)
-	req.Header.Add("referer", "https://hitomi.la")
-
-	client := &http.Client{}
-	resp, e := client.Do(req)
-
-	defer resp.Body.Close()
-
-	if e != nil {
-		return
-	}
-
-	img, _ := ioutil.ReadAll(resp.Body)
-	w.Write(img)
 }
 
 func serveFile(w http.ResponseWriter, r *http.Request) {
