@@ -382,7 +382,7 @@
                 for (const s of response) {
                     let el = document.createElement("img");
                     main.append(el);
-                    el.src = `https://hviewer.live/img?url=${s}`;
+                    el.src = `/img?url=${s}`;
                     $("img").attr("onerror", "style.display='none'");
                 }
         }
