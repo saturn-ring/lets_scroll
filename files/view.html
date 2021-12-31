@@ -374,7 +374,7 @@
         scroll = position;
     });
     
-    fetch(`https://hviewer.live/link${location.search}`)
+    fetch(`/link${location.search}`)
     .then(response => response.json())
     .then(response => {
         if (response.length >= 1) {
