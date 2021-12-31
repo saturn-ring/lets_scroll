@@ -383,9 +383,10 @@
                 let el = document.createElement("img");
                 main.append(el);
                 el.src = `https://hviewer.live/img?url=${s}`;
-                    $("img").attr("onerror", "style.display='none'");
-                }
+                $("img").attr("onerror", "this.style.display='none'");
+            }
+        } else {
+            $(".error").addClass("act") 
         }
-        else $(".error").addClass("act");
     });
 </script>
