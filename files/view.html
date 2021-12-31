@@ -466,7 +466,8 @@
                 $("img").attr("onerror", "this.style.display='none'");
             }
         } else {
-            $(".error").addClass("act") 
+            $(".error").addClass("act");
         }
-    });
+    })
+    .catch(err => $(".error").addClass("act"));
 </script>
