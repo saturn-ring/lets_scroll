@@ -386,6 +386,8 @@
     <div id="image" class="img"></div>
 </body>
 </html>
+<script src="gg.js"></script>
+<script src="common.js"></script>
 <script>
     setTimeout(function() {
         $(".loadtoolong").css("display", "block");
@@ -466,20 +468,26 @@
         scroll = position;
     });
     
+    const id = Number(new URLSearchParams(location.search).get("id"));
+    
     fetch(`https://hviewer.live/link${location.search}`)
     .then(response => response.json())
     .then(response => {
+
         if (response.length >= 1) {
-            const main = document.getElementById("image");
-            for (const s of response) {
-                let el = document.createElement("img");
-                main.append(el);
-                el.src = `https://hviewer.live/img?url=${s}`;
+
+            const main = $("#image");
+
+            for (const file of response) {
+                let url = url_from_url_from_hash(id, file);
+                let element = document.createElement("img");
+                main.append(element);
+                el.src = `https://hviewer.live/img?url=${url}`;
                 $("img").attr("onerror", "this.style.display='none'");
             }
-        } else {
-            $(".error").addClass("act");
+
         }
+        else $(".error").addClass("act");
     })
-    .catch(err => $(".error").addClass("act"));
+    .catch(() => $(".error").addClass("act"));
 </script>
