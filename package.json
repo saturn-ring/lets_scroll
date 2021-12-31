@@ -29,7 +29,8 @@
       "icon": "./icon.ico"
     },
     "files": [
-      "**/*"
+      "**/*",
+      "!*.go"
     ]
   },
   "homepage": "https://github.com/dadami-io/lets_scroll#readme",
