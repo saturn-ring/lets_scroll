@@ -1128,12 +1128,12 @@
     document.getElementById("getnum").addEventListener("keydown", function (event) {
         if (event.keyCode === 13) {
                 let num = document.getElementById("getnum").value || undefined;
-                if (!isNaN(num)) location.href = `https://hviewer.live/img?url=${s}`;
+                if (!isNaN(num)) location.href = `https://hviewer.live/img?url=${num}`;
         }
     })
     document.getElementById("btn").onclick = function () {
         let num = document.getElementById("getnum").value || undefined;
-        if (!isNaN(num)) location.href = `https://hviewer.live/img?url=${s}`;
+        if (!isNaN(num)) location.href = `https://hviewer.live/img?url=${num}`;
     }
 
     $(".srch").on("propertychange change keyup paste input", function(){
