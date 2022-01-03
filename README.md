@@ -1,6 +1,6 @@
 # lets_scroll
 [![Go](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml/badge.svg)](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml)
-
+[![Docker](https://github.com/dadami-io/lets_scroll/actions/workflows/docker-image.yml/badge.svg)](https://github.com/dadami-io/lets_scroll/actions/workflows/docker-image.yml)
 ## Go based hitomi.la viewer
 
 ---
