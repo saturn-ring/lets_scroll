@@ -1,7 +1,7 @@
 # lets_scroll
 [![Go](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml/badge.svg)](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml)
 
-## golang based hitomi.la viewer
+## Go based hitomi.la viewer
 
 ---
 
