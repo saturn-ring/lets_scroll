@@ -76,8 +76,8 @@ func (h Hitomi) GetIMG(url string) []byte {
 
 func (h Hitomi) GetJS() {
 
-	h.Download("./files/gg.js", "http://ltn.hitomi.la/gg.js")
-	h.Download("./files/common.js", "http://ltn.hitomi.la/common.js")
+	h.Download("./files/gg.js", "https://ltn.hitomi.la/gg.js")
+	h.Download("./files/common.js", "https://ltn.hitomi.la/common.js")
 
 }
 
