@@ -47,6 +47,7 @@ func serveFile(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	Hitomi{}.GetJS()
+        http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	http.HandleFunc("/link", getLink)
 	http.HandleFunc("/img", serveIMG)
 	http.HandleFunc("/", serveFile)
