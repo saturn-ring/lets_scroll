@@ -390,6 +390,7 @@
 <script src="gg.js"></script>
 <script src="common.js"></script>
 <script>
+    document.location.hostname.endsWith = () => true
     setTimeout(function() {
         $(".loadtoolong").css("display", "block");
     }, 2000);
