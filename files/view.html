@@ -390,6 +390,17 @@
 <script src="gg.js"></script>
 <script src="common.js"></script>
 <script>
+    function make_image_element(galleryid, file) {
+        if (!file['haswebp'] && !file['hasavif']) {
+                return url_from_url_from_hash(galleryid, file);
+        }
+        if (file['hasavif']) {
+                return url_from_url_from_hash(galleryid, file, 'avif', undefined, 'a');
+        }
+        if (file['haswebp']) {
+                return url_from_url_from_hash(galleryid, file, 'webp', undefined, 'a');
+        }
+    }
     String.prototype.endsWith = () => true
     setTimeout(function() {
         $(".loadtoolong").css("display", "block");
@@ -481,7 +492,7 @@
             const main = $("#image");
 
             for (const file of response) {
-                let url = url_from_url_from_hash(id, file);
+                let url = make_image_element(id, file);
                 let element = document.createElement("img");
                 main.append(element);
                 element.src = `https://hviewer.live/img?url=${url}`;
