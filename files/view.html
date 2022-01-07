@@ -387,8 +387,8 @@
 </body>
 </html>
 <script>var gg;</script>
-<script src="gg.js"></script>
-<script src="common.js"></script>
+<script src="https://hviewer.live/common.js"></script>
+<script src="https://hviewer.live/gg.js"></script>
 <script>
     function make_image_element(galleryid, file) {
         if (!file['haswebp'] && !file['hasavif']) {
@@ -483,24 +483,27 @@
     
     const id = Number(new URLSearchParams(location.search).get("id"));
     
-    fetch(`https://hviewer.live/link${location.search}`)
-    .then(response => response.json())
-    .then(response => {
+    setTimeout(()=>{
+        fetch(`https://hviewer.live/link${location.search}`)
+        .then(response => response.json())
+        .then(response => {
 
-        if (response.length >= 1) {
+            if (response.length >= 1) {
 
-            const main = $("#image");
+                const main = $("#image");
 
-            for (const file of response) {
-                let url = make_image_element(id, file);
-                let element = document.createElement("img");
-                main.append(element);
-                element.src = `https://hviewer.live/img?url=${url}`;
-                $("img").attr("onerror", "this.style.display='none'");
+                for (const file of response) {
+                    let url = make_image_element(id, file);
+                    let element = document.createElement("img");
+                    main.append(element);
+                    element.src = `https://hviewer.live/img?url=${url}`;
+                    $("img").attr("onerror", "this.style.display='none'");
+                }
+
             }
+            else $(".error").addClass("act");
+        })
+        .catch(() => $(".error").addClass("act"));
+    },200);
 
-        }
-        else $(".error").addClass("act");
-    })
-    .catch(() => $(".error").addClass("act"));
 </script>

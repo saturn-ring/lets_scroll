@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 require('@electron/remote/main').initialize()
-//노수호바보
+
 const isdev = false;
 
 function createWindow () {
