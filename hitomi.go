@@ -59,7 +59,7 @@ func (h Hitomi) GetIMG(url string) []byte {
 	fmt.Println(url)
 
 	req, _ := http.NewRequest("GET", url, nil)
-	req.Header.Add("referer", "https://hitomi.la")
+	req.Header.Add("referer", "https://hitomi.la/reader/")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
