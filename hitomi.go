@@ -91,7 +91,11 @@ func (h Hitomi) Download(path, url string) {
 
 	defer out.Close()
 
-	resp, err := http.Get(url)
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Add("referer", "https://hitomi.la/")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
 
 	if err != nil {
 		panic(err)
