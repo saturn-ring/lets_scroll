@@ -386,9 +386,9 @@
     <div id="image" class="img"></div>
 </body>
 </html>
-<script>const domain = "hviewer.live"</script>
 <script src="https://hviewer.live/common.js"></script>    
 <script>
+    domain = "hviewer.live";
     function make_image_element(galleryid, file) {
         if (!file['haswebp'] && !file['hasavif']) {
                 return url_from_url_from_hash(galleryid, file);
