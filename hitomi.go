@@ -32,6 +32,7 @@ type File struct {
 const (
 	host = "https://ltn.hitomi.la"
 	path = host + "/galleries/%s.js"
+	ref = "https://hitomi.la/reader/%s.html"
 )
 
 func (h Hitomi) GetLink(id string) (f []File) {
@@ -39,7 +40,13 @@ func (h Hitomi) GetLink(id string) (f []File) {
 	var data Body
 
 	url := fmt.Sprintf(path, id)
-	resp, err := http.Get(url)
+	referer := fmt.Sprintf(ref, id)
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Add("Referer", referer)
+	req.Header.Add("Host", host)
+	client := &http.Client{}
+	resp, err := client.Do(req)
+
 
 	if err != nil {
 		return
