@@ -1,6 +1,6 @@
 # lets_scroll
-[![Go](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml/badge.svg)](https://github.com/dadami-io/lets_scroll/actions/workflows/go.yml)
-[![Docker](https://github.com/dadami-io/lets_scroll/actions/workflows/docker-image.yml/badge.svg)](https://github.com/dadami-io/lets_scroll/actions/workflows/docker-image.yml)
+[![Go](https://github.com/saturn-ring/lets_scroll/actions/workflows/go.yml/badge.svg)](https://github.com/saturn-ring/lets_scroll/actions/workflows/go.yml)
+[![Docker](https://github.com/saturn-ring/lets_scroll/actions/workflows/docker-image.yml/badge.svg)](https://github.com/saturn-ring/lets_scroll/actions/workflows/docker-image.yml)
 ## Go based hitomi.la viewer
 
 ---
@@ -8,8 +8,6 @@
 ### Structure of lets_scroll
    
 Golang backend + static HTML frontend
-
-Packaged with Electron
           
 
 ---
@@ -23,8 +21,4 @@ Electron-app Developer: franknoh
 Designer: Pastel
 
 ---
-### 업데이트 주기
-
-- 매 시간 0분에 업데이트 && 리로드 가 시작됩니다.
-- 매주 일요일에 electron app stable 릴리즈가 배포됩니다.
-- https://github.com/saturn-ring/hitomi-viewer
+### 지성빈 되었습니다. 작동은 확인됨.
