@@ -21,4 +21,3 @@ Electron-app Developer: franknoh
 Designer: Pastel
 
 ---
-### 지성빈 되었습니다. 작동은 확인됨.
