@@ -409,6 +409,19 @@
         $("#load").removeClass("modal");
     });
     
+    function getCookie(name) { // https://stackoverflow.com/a/15724300
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    
+    Cookies = {};
+    
+    Cookies.get = (str) => {
+        let retOriginal = getCookie(str)
+        return retOriginal ? retOriginal : '1';
+    };
+    
     document.getElementById("getnum").addEventListener("keydown", function (event) {
         if (event.keyCode === 13) {
                 let num = document.getElementById("getnum").value || undefined;
