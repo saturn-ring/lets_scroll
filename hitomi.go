@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"crypto/tls"
 )
 
 type Hitomi struct{}
@@ -44,7 +45,11 @@ func (h Hitomi) GetLink(id string) (f []File) {
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Add("Referer", referer)
 	req.Header.Add("Host", host)
-	client := &http.Client{}
+
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
+	}
+	client := &http.Client{Transport: tr}
 	resp, err := client.Do(req)
 
 
@@ -68,7 +73,10 @@ func (h Hitomi) GetIMG(url string) []byte {
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Add("referer", "https://hitomi.la/reader/")
 
-	client := &http.Client{}
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
+	}
+	client := &http.Client{Transport: tr}
 	resp, err := client.Do(req)
 
 	if err != nil {
@@ -100,8 +108,11 @@ func (h Hitomi) Download(path, url string) {
 
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Add("referer", "https://hitomi.la/")
-
-	client := &http.Client{}
+	
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
+	}
+	client := &http.Client{Transport: tr}
 	resp, err := client.Do(req)
 
 	if err != nil {
