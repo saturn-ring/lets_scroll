@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 	PATH "path"
+	"runtime"
+	"runtime/debug"
+	"time"
 )
 
 func serveIMG(w http.ResponseWriter, r *http.Request) {
@@ -46,9 +49,17 @@ func serveFile(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	Hitomi{}.GetJS()
 	http.HandleFunc("/link", getLink)
 	http.HandleFunc("/img", serveIMG)
 	http.HandleFunc("/", serveFile)
 	http.ListenAndServe(":3000", nil)
+
+	go func() {
+		for {
+			debug.FreeOSMemory()
+			runtime.GC()
+			Hitomi{}.GetJS()
+			time.Sleep(time.Second * 300)
+		}
+	}()
 }
