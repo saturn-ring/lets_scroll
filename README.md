@@ -14,9 +14,7 @@ Golang backend + static HTML frontend
 
 ### Members
 
-Backend Developer: Darkapple, Lano, 다다미, Hibot
-
-Electron-app Developer: franknoh
+Backend Developer: Darkapple, Lano, dadami-io, Hibot
 
 Designer: Pastel
 
