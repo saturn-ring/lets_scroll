@@ -1,7 +1,7 @@
 # lets_scroll
 [![Go](https://github.com/saturn-ring/lets_scroll/actions/workflows/go.yml/badge.svg)](https://github.com/saturn-ring/lets_scroll/actions/workflows/go.yml)
 [![Docker](https://github.com/saturn-ring/lets_scroll/actions/workflows/docker-image.yml/badge.svg)](https://github.com/saturn-ring/lets_scroll/actions/workflows/docker-image.yml)
-## Go based hitomi.la viewer
+## Go based hitomi.la viewer (currently not working, plz update and give us PR!)
 
 ---
 
